@@ -6,3 +6,6 @@
  * Live: https://dhruvahlawat.github.io/pocketpad_website/apps/pocketpad/index.html
  */
 export const pocketpadPagesSiteOrigin = "https://dhruvahlawat.github.io/pocketpad_website";
+
+/** Full public URL of the PocketPad marketing home (used by the hub and legacy redirects). */
+export const pocketpadOverviewUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/index.html`;

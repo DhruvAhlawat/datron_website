@@ -1,10 +1,10 @@
 /**
  * Datron hub home — edit `DatronHomeContent` below for titles, blurbs, footer, and outbound links/images.
  */
-import { pocketpadPagesSiteOrigin } from "./site_urls.js";
+import { pocketpadOverviewUrl, pocketpadPagesSiteOrigin } from "./site_urls.js";
 
 const PP = pocketpadPagesSiteOrigin.replace(/\/$/, "");
-const POCKETPAD_OVERVIEW = `${PP}/apps/pocketpad/index.html`;
+const POCKETPAD_OVERVIEW = pocketpadOverviewUrl;
 
 export const DatronHomeContent = {
   meta: {
