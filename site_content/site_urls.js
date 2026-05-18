@@ -1,6 +1,8 @@
 /**
- * Cross-site links from the Datron hub to other deployed apps.
- * `pocketpadPagesSiteOrigin` = GitHub Pages root of the pocketpad_website repo (no trailing slash).
- * Edit when your GitHub username/repo name or custom domain changes.
+ * Cross-site links from the Datron hub (https://datronapps.com) to other deployed apps.
+ *
+ * `pocketpadPagesSiteOrigin` — GitHub Pages root for pocketpad_website (no trailing slash).
+ * PocketPad overview is built as: `${pocketpadPagesSiteOrigin}/apps/pocketpad/index.html`
+ * Live: https://dhruvahlawat.github.io/pocketpad_website/apps/pocketpad/index.html
  */
 export const pocketpadPagesSiteOrigin = "https://dhruvahlawat.github.io/pocketpad_website";
