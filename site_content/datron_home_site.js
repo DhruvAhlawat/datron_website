@@ -65,7 +65,7 @@ export const DatronHomeContent = {
       {
         title: "Folder Vault",
         description_html:
-          "A <strong>file manager for Meta Quest</strong> with <strong>password-protected vaults</strong> for private files and a VR player for <strong>flat, 3D, VR180 and 360 video</strong>. Stream from your PC or NAS over your home network. No account, no tracking.",
+          "A <strong>file manager for Meta Quest</strong> with <strong>password-protected vaults</strong> for private files and a VR player for <strong>flat, 3D, VR180 and 360 video</strong>. Stream from your PC or NAS over your home network. No account, no ads.",
         ctaHref: FOLDERVAULT_OVERVIEW,
         ctaLabel: "Go to page",
         iconSrcKey: "folderVault",
