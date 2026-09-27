@@ -1,5 +1,5 @@
 /**
- * Datron hub home — edit `DatronHomeContent` below for titles, blurbs, footer, and outbound links/images.
+ * Datron hub home: edit `DatronHomeContent` below for titles, blurbs, footer, and outbound links/images.
  */
 import {
   foldervaultOverviewUrl,
@@ -14,7 +14,7 @@ const FOLDERVAULT_OVERVIEW = foldervaultOverviewUrl;
 export const DatronHomeContent = {
   meta: {
     title: "Datron",
-    description: "Apps and projects by Datron, including PocketPad (phone as controller) and Folder Vault (file manager and private vault for Meta Quest).",
+    description: "Apps and projects by Datron, including PocketPad (phone as controller) and Folder Vault (file manager, private vault and video player for Meta Quest, with streaming from your PC).",
   },
 
   paths: {
@@ -73,7 +73,7 @@ export const DatronHomeContent = {
         {
           title: "Folder Vault",
           description_html:
-            "A <strong>file manager for Meta Quest</strong> with <strong>password-protected vaults</strong> for private files and a VR player for <strong>flat, 3D, VR180 and 360 video</strong>. Stream from your PC or NAS over your home network. No account, no ads.",
+            "A <strong>file manager and video player for Meta Quest</strong>. Hide private files in <strong>password-protected vaults</strong>, and watch <strong>flat, 3D, VR180 and 360 video</strong> in almost any format. It also <strong>streams straight from your PC or NAS</strong> over your home Wi‑Fi, with nothing to copy first. No account, no ads.",
           ctaHref: FOLDERVAULT_OVERVIEW,
           ctaLabel: "Go to page",
           iconSrcKey: "folderVault",
