@@ -384,6 +384,47 @@ button.nav-link {
   background: #a6b2ff;
 }
 
+/* Kitna promo card: the Kitna icon's graphite with its brand teal. */
+.apps-section > .app-row.app-row--kitna {
+  border-color: #1E3D39;
+  background: linear-gradient(165deg, #14201f 0%, #101316 100%);
+  box-shadow:
+    0 0 0 1px rgba(42, 157, 143, 0.08),
+    0 14px 42px rgba(0, 0, 0, 0.35);
+}
+
+.app-row.app-row--kitna .app-row__body h2 {
+  color: #EEF2EE;
+}
+
+.app-row.app-row--kitna .app-row__body p {
+  color: #93A5A0;
+}
+
+.app-row.app-row--kitna .app-row__body p strong {
+  color: #8FE0D4;
+  font-weight: 600;
+}
+
+.app-row.app-row--kitna .app-row__visual img {
+  box-shadow:
+    0 0 0 1px #1E3D39,
+    0 12px 40px rgba(0, 0, 0, 0.38);
+}
+
+.app-row.app-row--kitna .btn-primary {
+  color: #062421;
+  background: #4DB6A9;
+  box-shadow:
+    0 4px 22px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(77, 182, 169, 0.2);
+}
+
+.app-row.app-row--kitna .btn-primary:hover {
+  color: #062421;
+  background: #6FCABF;
+}
+
 .apps-section > .app-row:last-of-type {
   margin-bottom: 0;
 }

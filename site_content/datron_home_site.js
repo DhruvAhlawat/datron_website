@@ -10,11 +10,12 @@ import {
 const PP = pocketpadPagesSiteOrigin.replace(/\/$/, "");
 const POCKETPAD_OVERVIEW = pocketpadOverviewUrl;
 const FOLDERVAULT_OVERVIEW = foldervaultOverviewUrl;
+const KITNA_OVERVIEW = "https://kitna.datronapps.com/";
 
 export const DatronHomeContent = {
   meta: {
     title: "Datron",
-    description: "Apps and projects by Datron, including PocketPad (phone as controller) and Folder Vault (file manager, private vault and video player for Meta Quest, with streaming from your PC).",
+    description: "Apps and projects by Datron, including PocketPad (phone as controller), Kitna (private spending tracker for Indian bank statements and notifications) and Folder Vault (file manager, private vault and video player for Meta Quest, with streaming from your PC).",
   },
 
   paths: {
@@ -27,6 +28,8 @@ export const DatronHomeContent = {
     // Local copy: the hub card shouldn't depend on the Folder Vault site being up.
     folderVaultIconSrc: "./assets/icons/foldervault_512.png",
     folderVaultIconAlt: "Folder Vault app icon",
+    kitnaIconSrc: "./assets/icons/kitna_512.png",
+    kitnaIconAlt: "Kitna app icon",
   },
 
   header: {
@@ -37,7 +40,13 @@ export const DatronHomeContent = {
     navAppsMenuAriaLabel: "Apps",
     /** Groups under Apps (phone/PC vs VR); extend when adding more app subsites (absolute https URLs) */
     navAppsGroups: [
-      { label: "Phone and PC", items: [{ label: "PocketPad", href: POCKETPAD_OVERVIEW }] },
+      {
+        label: "Phone and PC",
+        items: [
+          { label: "PocketPad", href: POCKETPAD_OVERVIEW },
+          { label: "Kitna", href: KITNA_OVERVIEW },
+        ],
+      },
       { label: "VR (Meta Quest)", items: [{ label: "Folder Vault", href: FOLDERVAULT_OVERVIEW }] },
     ],
   },
@@ -62,6 +71,14 @@ export const DatronHomeContent = {
           ctaHref: POCKETPAD_OVERVIEW,
           ctaLabel: "Go to page",
           iconSrcKey: "pocketPad",
+        },
+        {
+          title: "Kitna",
+          description_html:
+            "A <strong>private spending tracker</strong> for Android. It <strong>reads your bank notifications and statements</strong> from Indian banks, GPay, PhonePe and Paytm, and <strong>sorts every rupee into categories</strong> on its own. Compare months, set budgets and find subscriptions. No account, <strong>fully offline</strong>.",
+          ctaHref: KITNA_OVERVIEW,
+          ctaLabel: "Go to page",
+          iconSrcKey: "kitna",
         },
       ],
     },
@@ -111,6 +128,9 @@ function iconSrcFor(item, paths) {
   if (item.iconSrcKey === "folderVault") {
     return paths.folderVaultIconSrc;
   }
+  if (item.iconSrcKey === "kitna") {
+    return paths.kitnaIconSrc;
+  }
   return item.iconSrc || "";
 }
 
@@ -120,6 +140,9 @@ function iconAltFor(item, paths) {
   }
   if (item.iconSrcKey === "folderVault") {
     return paths.folderVaultIconAlt;
+  }
+  if (item.iconSrcKey === "kitna") {
+    return paths.kitnaIconAlt;
   }
   return item.iconAlt || "";
 }
@@ -251,7 +274,7 @@ function buildAppArticle(c, app) {
   if (!app || !String(app.title).trim()) return null;
 
   const article = document.createElement("article");
-  const rowModifier = { pocketPad: " app-row--pocketpad", folderVault: " app-row--foldervault" };
+  const rowModifier = { pocketPad: " app-row--pocketpad", folderVault: " app-row--foldervault", kitna: " app-row--kitna" };
   article.className = "app-row" + (rowModifier[app.iconSrcKey] || "");
 
   const visual = document.createElement("div");
