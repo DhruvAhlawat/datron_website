@@ -36,10 +36,10 @@ export const DatronHomeContent = {
     navAppsLabel: "Apps",
     /** `aria-label` for the Apps menu control */
     navAppsMenuAriaLabel: "Apps",
-    /** Items under Apps; extend when adding more app subsites (absolute https URLs) */
-    navAppsItems: [
-      { label: "PocketPad", href: POCKETPAD_OVERVIEW },
-      { label: "Folder Vault", href: FOLDERVAULT_OVERVIEW },
+    /** Groups under Apps (phone/PC vs VR); extend when adding more app subsites (absolute https URLs) */
+    navAppsGroups: [
+      { label: "Phone and PC", items: [{ label: "PocketPad", href: POCKETPAD_OVERVIEW }] },
+      { label: "VR (Meta Quest)", items: [{ label: "Folder Vault", href: FOLDERVAULT_OVERVIEW }] },
     ],
   },
 
@@ -49,29 +49,39 @@ export const DatronHomeContent = {
       "<em>Just a developer who likes building fun apps.</em><br />Below you’ll find apps with downloads, docs, and support details.",
   },
 
-  appsSection: {
-    id: "apps",
-    title: "Apps",
-    intro: "Installers and setup notes live on each app’s page.",
-    featuredApps: [
-      {
-        title: "PocketPad",
-        description_html:
-          "An all-in-one app to turn your Android phone into a low-latency <strong>gamepad, mouse and keyboard, media remote, or slides controller</strong> — for your PC(Windows/Mac/Linux), Android or smart TV over <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong>.",
-        ctaHref: POCKETPAD_OVERVIEW,
-        ctaLabel: "Go to page",
-        iconSrcKey: "pocketPad",
-      },
-      {
-        title: "Folder Vault",
-        description_html:
-          "A <strong>file manager for Meta Quest</strong> with <strong>password-protected vaults</strong> for private files and a VR player for <strong>flat, 3D, VR180 and 360 video</strong>. Stream from your PC or NAS over your home network. No account, no ads.",
-        ctaHref: FOLDERVAULT_OVERVIEW,
-        ctaLabel: "Go to page",
-        iconSrcKey: "folderVault",
-      },
-    ],
-  },
+  /** Home page app sections: phone/PC apps first, then VR apps. The first keeps id "apps" (footer link). */
+  appSections: [
+    {
+      id: "apps",
+      title: "Phone and PC apps",
+      intro: "For Android phones and computers. Installers and setup notes live on each app’s page.",
+      featuredApps: [
+        {
+          title: "PocketPad",
+          description_html:
+            "An all-in-one app to turn your Android phone into a low-latency <strong>gamepad, mouse and keyboard, media remote, or slides controller</strong> for your PC (Windows/Mac/Linux), Android or smart TV over <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong>.",
+          ctaHref: POCKETPAD_OVERVIEW,
+          ctaLabel: "Go to page",
+          iconSrcKey: "pocketPad",
+        },
+      ],
+    },
+    {
+      id: "vr-apps",
+      title: "VR apps",
+      intro: "For Meta Quest headsets, from the Meta Horizon Store.",
+      featuredApps: [
+        {
+          title: "Folder Vault",
+          description_html:
+            "A <strong>file manager for Meta Quest</strong> with <strong>password-protected vaults</strong> for private files and a VR player for <strong>flat, 3D, VR180 and 360 video</strong>. Stream from your PC or NAS over your home network. No account, no ads.",
+          ctaHref: FOLDERVAULT_OVERVIEW,
+          ctaLabel: "Go to page",
+          iconSrcKey: "folderVault",
+        },
+      ],
+    },
+  ],
 
   footer: {
     footerLineDatronLabel: "Datron",
@@ -116,7 +126,7 @@ function iconAltFor(item, paths) {
 }
 
 function buildAppsNavDropdown(c) {
-  const items = Array.isArray(c.header.navAppsItems) ? c.header.navAppsItems : [];
+  const groups = Array.isArray(c.header.navAppsGroups) ? c.header.navAppsGroups : [];
   const wrap = document.createElement("div");
   wrap.className = "nav-dropdown";
 
@@ -136,17 +146,24 @@ function buildAppsNavDropdown(c) {
   panel.hidden = true;
   btn.setAttribute("aria-controls", panelId);
 
-  for (const item of items) {
-    if (!item || !String(item.label || "").trim() || !String(item.href || "").trim()) continue;
-    const li = document.createElement("li");
-    li.setAttribute("role", "none");
-    const a = document.createElement("a");
-    a.className = "nav-dropdown__item";
-    a.href = String(item.href).trim();
-    a.setAttribute("role", "menuitem");
-    a.textContent = String(item.label).trim();
-    li.appendChild(a);
-    panel.appendChild(li);
+  for (const group of groups) {
+    const head = document.createElement("li");
+    head.setAttribute("role", "presentation");
+    head.className = "nav-dropdown__group";
+    head.textContent = group.label;
+    panel.appendChild(head);
+    for (const item of group.items || []) {
+      if (!item || !String(item.label || "").trim() || !String(item.href || "").trim()) continue;
+      const li = document.createElement("li");
+      li.setAttribute("role", "none");
+      const a = document.createElement("a");
+      a.className = "nav-dropdown__item";
+      a.href = String(item.href).trim();
+      a.setAttribute("role", "menuitem");
+      a.textContent = String(item.label).trim();
+      li.appendChild(a);
+      panel.appendChild(li);
+    }
   }
 
   function close() {
@@ -281,15 +298,14 @@ function buildAppArticle(c, app) {
   return article;
 }
 
-function buildApps(c) {
-  const s = c.appsSection;
+function buildAppSection(c, s) {
   const sec = document.createElement("section");
-  sec.id = s.id || "apps";
+  sec.id = s.id;
   sec.className = "apps-section section-block";
-  sec.setAttribute("aria-labelledby", "apps-heading");
+  sec.setAttribute("aria-labelledby", `${s.id}-heading`);
 
   const h2 = document.createElement("h2");
-  h2.id = "apps-heading";
+  h2.id = `${s.id}-heading`;
   h2.className = "h-section";
   h2.textContent = s.title;
 
@@ -306,6 +322,10 @@ function buildApps(c) {
   }
 
   return sec;
+}
+
+function buildApps(c) {
+  return (c.appSections || []).map((s) => buildAppSection(c, s));
 }
 
 function buildFooter(c) {
@@ -395,7 +415,7 @@ function renderDatronHome(content = DatronHomeContent) {
   }
 
   header.replaceChildren(buildHeader(content));
-  main.replaceChildren(buildHero(content), buildApps(content));
+  main.replaceChildren(buildHero(content), ...buildApps(content));
   footer.replaceChildren(...buildFooter(content));
 }
 

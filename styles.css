@@ -191,6 +191,18 @@ button.nav-link {
     0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
+.nav-dropdown__group {
+  padding: 10px 14px 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.nav-dropdown__group:not(:first-child) {
+  margin-top: 4px;
+  border-top: 1px solid var(--stroke);
+}
+
 .nav-dropdown__item {
   display: block;
   padding: 10px 14px;
@@ -262,6 +274,10 @@ button.nav-link {
   margin-bottom: 8px;
 }
 
+.apps-section + .apps-section {
+  margin-top: 48px;
+}
+
 .apps-intro {
   margin: 0 0 28px;
   font-size: 0.94rem;
@@ -327,43 +343,45 @@ button.nav-link {
 }
 
 /* Folder Vault promo card on the Datron hub: matches the Folder Vault site amber palette. */
+/* Folder Vault promo card: the Folder Vault site's navy and periwinkle (amber is kept for vault things there). */
 .apps-section > .app-row.app-row--foldervault {
-  border-color: #2e2a22;
-  background: linear-gradient(165deg, #151821 0%, #0c0e13 100%);
+  border-color: #26304a;
+  background: linear-gradient(165deg, #182033 0%, #0f1626 100%);
   box-shadow:
-    0 0 0 1px rgba(245, 181, 68, 0.06),
+    0 0 0 1px rgba(140, 155, 255, 0.08),
     0 14px 42px rgba(0, 0, 0, 0.35);
 }
 
 .app-row.app-row--foldervault .app-row__body h2 {
-  color: #f1f4f9;
+  color: #e7eaf3;
 }
 
 .app-row.app-row--foldervault .app-row__body p {
-  color: #a3a9b8;
+  color: #8a93a8;
 }
 
 .app-row.app-row--foldervault .app-row__body p strong {
-  color: #ffcc6e;
+  color: #c3caff;
   font-weight: 600;
 }
 
 .app-row.app-row--foldervault .app-row__visual img {
   box-shadow:
-    0 0 0 1px #2e2a22,
+    0 0 0 1px #26304a,
     0 12px 40px rgba(0, 0, 0, 0.38);
 }
 
 .app-row.app-row--foldervault .btn-primary {
-  color: #2a1a00;
-  background: linear-gradient(130deg, #f5b544 0%, #e8893a 100%);
+  color: #0f1626;
+  background: #8c9bff;
   box-shadow:
     0 4px 22px rgba(0, 0, 0, 0.32),
-    0 0 0 1px rgba(245, 181, 68, 0.12);
+    0 0 0 1px rgba(140, 155, 255, 0.2);
 }
 
 .app-row.app-row--foldervault .btn-primary:hover {
-  color: #2a1a00;
+  color: #0f1626;
+  background: #a6b2ff;
 }
 
 .apps-section > .app-row:last-of-type {
