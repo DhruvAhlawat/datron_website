@@ -3,14 +3,12 @@
  */
 import {
   foldervaultOverviewUrl,
-  foldervaultSiteOrigin,
   pocketpadOverviewUrl,
   pocketpadPagesSiteOrigin,
 } from "./site_urls.js";
 
 const PP = pocketpadPagesSiteOrigin.replace(/\/$/, "");
 const POCKETPAD_OVERVIEW = pocketpadOverviewUrl;
-const FV = foldervaultSiteOrigin.replace(/\/$/, "");
 const FOLDERVAULT_OVERVIEW = foldervaultOverviewUrl;
 
 export const DatronHomeContent = {
@@ -26,7 +24,8 @@ export const DatronHomeContent = {
     pocketPadIconSrc: `${PP}/assets/icons/gamepad_1.png`,
     pocketPadIconAlt: "PocketPad app icon",
     folderVaultPageHref: FOLDERVAULT_OVERVIEW,
-    folderVaultIconSrc: `${FV}/assets/icons/foldervault_512.png`,
+    // Local copy: the hub card shouldn't depend on the Folder Vault site being up.
+    folderVaultIconSrc: "./assets/icons/foldervault_512.png",
     folderVaultIconAlt: "Folder Vault app icon",
   },
 
