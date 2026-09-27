@@ -326,6 +326,46 @@ button.nav-link {
   color: #031208;
 }
 
+/* Folder Vault promo card on the Datron hub: matches the Folder Vault site amber palette. */
+.apps-section > .app-row.app-row--foldervault {
+  border-color: #2e2a22;
+  background: linear-gradient(165deg, #151821 0%, #0c0e13 100%);
+  box-shadow:
+    0 0 0 1px rgba(245, 181, 68, 0.06),
+    0 14px 42px rgba(0, 0, 0, 0.35);
+}
+
+.app-row.app-row--foldervault .app-row__body h2 {
+  color: #f1f4f9;
+}
+
+.app-row.app-row--foldervault .app-row__body p {
+  color: #a3a9b8;
+}
+
+.app-row.app-row--foldervault .app-row__body p strong {
+  color: #ffcc6e;
+  font-weight: 600;
+}
+
+.app-row.app-row--foldervault .app-row__visual img {
+  box-shadow:
+    0 0 0 1px #2e2a22,
+    0 12px 40px rgba(0, 0, 0, 0.38);
+}
+
+.app-row.app-row--foldervault .btn-primary {
+  color: #2a1a00;
+  background: linear-gradient(130deg, #f5b544 0%, #e8893a 100%);
+  box-shadow:
+    0 4px 22px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(245, 181, 68, 0.12);
+}
+
+.app-row.app-row--foldervault .btn-primary:hover {
+  color: #2a1a00;
+}
+
 .apps-section > .app-row:last-of-type {
   margin-bottom: 0;
 }

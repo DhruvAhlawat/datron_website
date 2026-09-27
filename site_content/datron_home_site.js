@@ -1,15 +1,22 @@
 /**
  * Datron hub home — edit `DatronHomeContent` below for titles, blurbs, footer, and outbound links/images.
  */
-import { pocketpadOverviewUrl, pocketpadPagesSiteOrigin } from "./site_urls.js";
+import {
+  foldervaultOverviewUrl,
+  foldervaultSiteOrigin,
+  pocketpadOverviewUrl,
+  pocketpadPagesSiteOrigin,
+} from "./site_urls.js";
 
 const PP = pocketpadPagesSiteOrigin.replace(/\/$/, "");
 const POCKETPAD_OVERVIEW = pocketpadOverviewUrl;
+const FV = foldervaultSiteOrigin.replace(/\/$/, "");
+const FOLDERVAULT_OVERVIEW = foldervaultOverviewUrl;
 
 export const DatronHomeContent = {
   meta: {
     title: "Datron",
-    description: "Apps and projects by Datron — including PocketPad, a phone-as-controller toolkit.",
+    description: "Apps and projects by Datron, including PocketPad (phone as controller) and Folder Vault (file manager and private vault for Meta Quest).",
   },
 
   paths: {
@@ -18,6 +25,9 @@ export const DatronHomeContent = {
     pocketPadPageHref: POCKETPAD_OVERVIEW,
     pocketPadIconSrc: `${PP}/assets/icons/gamepad_1.png`,
     pocketPadIconAlt: "PocketPad app icon",
+    folderVaultPageHref: FOLDERVAULT_OVERVIEW,
+    folderVaultIconSrc: `${FV}/assets/icons/foldervault_512.png`,
+    folderVaultIconAlt: "Folder Vault app icon",
   },
 
   header: {
@@ -27,7 +37,10 @@ export const DatronHomeContent = {
     /** `aria-label` for the Apps menu control */
     navAppsMenuAriaLabel: "Apps",
     /** Items under Apps; extend when adding more app subsites (absolute https URLs) */
-    navAppsItems: [{ label: "PocketPad", href: POCKETPAD_OVERVIEW }],
+    navAppsItems: [
+      { label: "PocketPad", href: POCKETPAD_OVERVIEW },
+      { label: "Folder Vault", href: FOLDERVAULT_OVERVIEW },
+    ],
   },
 
   hero: {
@@ -48,6 +61,14 @@ export const DatronHomeContent = {
         ctaHref: POCKETPAD_OVERVIEW,
         ctaLabel: "Go to page",
         iconSrcKey: "pocketPad",
+      },
+      {
+        title: "Folder Vault",
+        description_html:
+          "A <strong>file manager for Meta Quest</strong> with <strong>password-protected vaults</strong> for private files and a VR player for <strong>flat, 3D, VR180 and 360 video</strong>. Stream from your PC or NAS over your home network. No account, no tracking.",
+        ctaHref: FOLDERVAULT_OVERVIEW,
+        ctaLabel: "Go to page",
+        iconSrcKey: "folderVault",
       },
     ],
   },
@@ -78,12 +99,18 @@ function iconSrcFor(item, paths) {
   if (item.iconSrcKey === "pocketPad") {
     return paths.pocketPadIconSrc;
   }
+  if (item.iconSrcKey === "folderVault") {
+    return paths.folderVaultIconSrc;
+  }
   return item.iconSrc || "";
 }
 
 function iconAltFor(item, paths) {
   if (item.iconSrcKey === "pocketPad") {
     return paths.pocketPadIconAlt;
+  }
+  if (item.iconSrcKey === "folderVault") {
+    return paths.folderVaultIconAlt;
   }
   return item.iconAlt || "";
 }
@@ -208,8 +235,8 @@ function buildAppArticle(c, app) {
   if (!app || !String(app.title).trim()) return null;
 
   const article = document.createElement("article");
-  article.className =
-    app.iconSrcKey === "pocketPad" ? "app-row app-row--pocketpad" : "app-row";
+  const rowModifier = { pocketPad: " app-row--pocketpad", folderVault: " app-row--foldervault" };
+  article.className = "app-row" + (rowModifier[app.iconSrcKey] || "");
 
   const visual = document.createElement("div");
   visual.className = "app-row__visual";
