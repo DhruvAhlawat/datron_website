@@ -90,7 +90,7 @@ export const DatronHomeContent = {
         {
           title: "Hideout",
           description_html:
-            "A <strong>VR video player, private web browser and file vault for Meta Quest</strong>. Watch <strong>flat, 3D, VR180 and 360 video</strong> from your files, <strong>your PC or NAS</strong>, or <strong>any web page</strong>, with A-B loop, zoom and speed. Hide private files in <strong>password-protected vaults</strong>, and browse without leaving a trace. No account, no ads.",
+            "A <strong>VR video player, private web browser and file vault for Meta Quest</strong>. Watch <strong>flat, 3D, VR180 and 360 video</strong> from your files, <strong>your PC, NAS or server</strong> (SMB, SFTP or FTP), or <strong>any web page</strong>, with A-B loop, zoom and speed. Hide private files in <strong>password-protected vaults</strong>, and browse without leaving a trace. No account, no ads.",
           ctaHref: HIDEOUT_OVERVIEW,
           ctaLabel: "Go to page",
           iconSrcKey: "hideout",
