@@ -342,9 +342,9 @@ button.nav-link {
   color: #031208;
 }
 
-/* Folder Vault promo card on the Datron hub: matches the Folder Vault site amber palette. */
-/* Folder Vault promo card: the Folder Vault site's navy and periwinkle (amber is kept for vault things there). */
-.apps-section > .app-row.app-row--foldervault {
+/* Hideout promo card on the Datron hub: matches the Hideout site amber palette. */
+/* Hideout promo card: the Hideout site's navy and periwinkle (amber is kept for vault things there). */
+.apps-section > .app-row.app-row--hideout {
   border-color: #26304a;
   background: linear-gradient(165deg, #182033 0%, #0f1626 100%);
   box-shadow:
@@ -352,26 +352,26 @@ button.nav-link {
     0 14px 42px rgba(0, 0, 0, 0.35);
 }
 
-.app-row.app-row--foldervault .app-row__body h2 {
+.app-row.app-row--hideout .app-row__body h2 {
   color: #e7eaf3;
 }
 
-.app-row.app-row--foldervault .app-row__body p {
+.app-row.app-row--hideout .app-row__body p {
   color: #8a93a8;
 }
 
-.app-row.app-row--foldervault .app-row__body p strong {
+.app-row.app-row--hideout .app-row__body p strong {
   color: #c3caff;
   font-weight: 600;
 }
 
-.app-row.app-row--foldervault .app-row__visual img {
+.app-row.app-row--hideout .app-row__visual img {
   box-shadow:
     0 0 0 1px #26304a,
     0 12px 40px rgba(0, 0, 0, 0.38);
 }
 
-.app-row.app-row--foldervault .btn-primary {
+.app-row.app-row--hideout .btn-primary {
   color: #0f1626;
   background: #8c9bff;
   box-shadow:
@@ -379,7 +379,7 @@ button.nav-link {
     0 0 0 1px rgba(140, 155, 255, 0.2);
 }
 
-.app-row.app-row--foldervault .btn-primary:hover {
+.app-row.app-row--hideout .btn-primary:hover {
   color: #0f1626;
   background: #a6b2ff;
 }

@@ -2,20 +2,20 @@
  * Datron hub home: edit `DatronHomeContent` below for titles, blurbs, footer, and outbound links/images.
  */
 import {
-  foldervaultOverviewUrl,
+  hideoutOverviewUrl,
   pocketpadOverviewUrl,
   pocketpadPagesSiteOrigin,
 } from "./site_urls.js";
 
 const PP = pocketpadPagesSiteOrigin.replace(/\/$/, "");
 const POCKETPAD_OVERVIEW = pocketpadOverviewUrl;
-const FOLDERVAULT_OVERVIEW = foldervaultOverviewUrl;
+const HIDEOUT_OVERVIEW = hideoutOverviewUrl;
 const KITNA_OVERVIEW = "https://kitna.datronapps.com/";
 
 export const DatronHomeContent = {
   meta: {
     title: "Datron",
-    description: "Apps and projects by Datron, including PocketPad (phone as controller), Kitna (private spending tracker for Indian bank statements and notifications) and Folder Vault (file manager, private vault and video player for Meta Quest, with streaming from your PC).",
+    description: "Apps and projects by Datron, including PocketPad (phone as controller), Kitna (private spending tracker for Indian bank statements and notifications) and Hideout (VR video player, private web browser and file vault for Meta Quest, with streaming from your PC).",
   },
 
   paths: {
@@ -24,10 +24,10 @@ export const DatronHomeContent = {
     pocketPadPageHref: POCKETPAD_OVERVIEW,
     pocketPadIconSrc: `${PP}/assets/icons/gamepad_1.png`,
     pocketPadIconAlt: "PocketPad app icon",
-    folderVaultPageHref: FOLDERVAULT_OVERVIEW,
-    // Local copy: the hub card shouldn't depend on the Folder Vault site being up.
-    folderVaultIconSrc: "./assets/icons/foldervault_512.png",
-    folderVaultIconAlt: "Folder Vault app icon",
+    hideoutPageHref: HIDEOUT_OVERVIEW,
+    // Local copy: the hub card shouldn't depend on the Hideout site being up.
+    hideoutIconSrc: "./assets/icons/hideout_512.png",
+    hideoutIconAlt: "Hideout app icon",
     kitnaIconSrc: "./assets/icons/kitna_512.png",
     kitnaIconAlt: "Kitna app icon",
   },
@@ -47,7 +47,7 @@ export const DatronHomeContent = {
           { label: "Kitna", href: KITNA_OVERVIEW },
         ],
       },
-      { label: "VR (Meta Quest)", items: [{ label: "Folder Vault", href: FOLDERVAULT_OVERVIEW }] },
+      { label: "VR (Meta Quest)", items: [{ label: "Hideout", href: HIDEOUT_OVERVIEW }] },
     ],
   },
 
@@ -88,12 +88,12 @@ export const DatronHomeContent = {
       intro: "For Meta Quest headsets, from the Meta Horizon Store.",
       featuredApps: [
         {
-          title: "Folder Vault",
+          title: "Hideout",
           description_html:
-            "A <strong>file manager and video player for Meta Quest</strong>. Hide private files in <strong>password-protected vaults</strong>, and watch <strong>flat, 3D, VR180 and 360 video</strong> in almost any format. It also <strong>streams straight from your PC or NAS</strong> over your home Wi‑Fi, with nothing to copy first. No account, no ads.",
-          ctaHref: FOLDERVAULT_OVERVIEW,
+            "A <strong>VR video player, private web browser and file vault for Meta Quest</strong>. Watch <strong>flat, 3D, VR180 and 360 video</strong> from your files, <strong>your PC or NAS</strong>, or <strong>any web page</strong>, with A-B loop, zoom and speed. Hide private files in <strong>password-protected vaults</strong>, and browse without leaving a trace. No account, no ads.",
+          ctaHref: HIDEOUT_OVERVIEW,
           ctaLabel: "Go to page",
-          iconSrcKey: "folderVault",
+          iconSrcKey: "hideout",
         },
       ],
     },
@@ -125,8 +125,8 @@ function iconSrcFor(item, paths) {
   if (item.iconSrcKey === "pocketPad") {
     return paths.pocketPadIconSrc;
   }
-  if (item.iconSrcKey === "folderVault") {
-    return paths.folderVaultIconSrc;
+  if (item.iconSrcKey === "hideout") {
+    return paths.hideoutIconSrc;
   }
   if (item.iconSrcKey === "kitna") {
     return paths.kitnaIconSrc;
@@ -138,8 +138,8 @@ function iconAltFor(item, paths) {
   if (item.iconSrcKey === "pocketPad") {
     return paths.pocketPadIconAlt;
   }
-  if (item.iconSrcKey === "folderVault") {
-    return paths.folderVaultIconAlt;
+  if (item.iconSrcKey === "hideout") {
+    return paths.hideoutIconAlt;
   }
   if (item.iconSrcKey === "kitna") {
     return paths.kitnaIconAlt;
@@ -274,7 +274,7 @@ function buildAppArticle(c, app) {
   if (!app || !String(app.title).trim()) return null;
 
   const article = document.createElement("article");
-  const rowModifier = { pocketPad: " app-row--pocketpad", folderVault: " app-row--foldervault", kitna: " app-row--kitna" };
+  const rowModifier = { pocketPad: " app-row--pocketpad", hideout: " app-row--hideout", kitna: " app-row--kitna" };
   article.className = "app-row" + (rowModifier[app.iconSrcKey] || "");
 
   const visual = document.createElement("div");

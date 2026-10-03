@@ -6,7 +6,7 @@ This repo hosts the **main Datron** landing page. Individual apps (e.g. PocketPa
 
 Edit **`site_content/site_urls.js`** — set `pocketpadPagesSiteOrigin` to the public PocketPad site root (no trailing slash), e.g. `https://pocketpad.datronapps.com`. Keep that value in sync with **`pocketpad_website/site_content/public_site_urls.js`** in the PocketPad repo.
 
-Set `foldervaultSiteOrigin` to the Folder Vault site root, `https://foldervault.datronapps.com`, and keep it in sync with **`foldervault_website/site_content/public_site_urls.js`**. `apps/foldervault/index.html` here is a redirect to that site.
+Set `hideoutSiteOrigin` to the Hideout site root, `https://hideout.datronapps.com`, and keep it in sync with **`foldervault_website/site_content/public_site_urls.js`**. `apps/hideout/index.html` and the old `apps/foldervault/index.html` (the app was called Folder Vault until 2026-10-03) redirect to that site.
 
 ## GitHub Pages
 
