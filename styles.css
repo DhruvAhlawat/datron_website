@@ -425,6 +425,47 @@ button.nav-link {
   background: #6FCABF;
 }
 
+/* Luminism promo card: the Luminism site's night sky with its warm lamp glow. */
+.apps-section > .app-row.app-row--luminism {
+  border-color: #2a2748;
+  background: linear-gradient(165deg, #17162e 0%, #04050d 100%);
+  box-shadow:
+    0 0 0 1px rgba(222, 216, 255, 0.08),
+    0 14px 42px rgba(0, 0, 0, 0.35);
+}
+
+.app-row.app-row--luminism .app-row__body h2 {
+  color: #f6f3fc;
+}
+
+.app-row.app-row--luminism .app-row__body p {
+  color: #a39fb8;
+}
+
+.app-row.app-row--luminism .app-row__body p strong {
+  color: #ffdcae;
+  font-weight: 600;
+}
+
+.app-row.app-row--luminism .app-row__visual img {
+  box-shadow:
+    0 0 0 1px #2a2748,
+    0 12px 40px rgba(0, 0, 0, 0.38);
+}
+
+.app-row.app-row--luminism .btn-primary {
+  color: #221a30;
+  background: #ffc27a;
+  box-shadow:
+    0 4px 22px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(255, 194, 122, 0.2);
+}
+
+.app-row.app-row--luminism .btn-primary:hover {
+  color: #221a30;
+  background: #ffdcae;
+}
+
 .apps-section > .app-row:last-of-type {
   margin-bottom: 0;
 }

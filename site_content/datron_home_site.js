@@ -11,11 +11,12 @@ const PP = pocketpadPagesSiteOrigin.replace(/\/$/, "");
 const POCKETPAD_OVERVIEW = pocketpadOverviewUrl;
 const HIDEOUT_OVERVIEW = hideoutOverviewUrl;
 const KITNA_OVERVIEW = "https://kitna.datronapps.com/";
+const LUMINISM_OVERVIEW = "https://luminism.datronapps.com/";
 
 export const DatronHomeContent = {
   meta: {
     title: "Datron",
-    description: "Apps and projects by Datron, including PocketPad (phone as controller), Kitna (private spending tracker for Indian bank statements and notifications) and Hideout (VR video player, private web browser and file vault for Meta Quest, with streaming from your PC).",
+    description: "Apps and projects by Datron, including PocketPad (phone as controller), Kitna (private spending tracker for Indian bank statements and notifications) Hideout (VR video player, private web browser and file vault for Meta Quest, with streaming from your PC) and Luminism (a shadow-sculpting puzzle for Meta Quest).",
   },
 
   paths: {
@@ -30,6 +31,8 @@ export const DatronHomeContent = {
     hideoutIconAlt: "Hideout app icon",
     kitnaIconSrc: "./assets/icons/kitna_512.png",
     kitnaIconAlt: "Kitna app icon",
+    luminismIconSrc: "./assets/icons/luminism_256.png",
+    luminismIconAlt: "Luminism app icon",
   },
 
   header: {
@@ -47,7 +50,13 @@ export const DatronHomeContent = {
           { label: "Kitna", href: KITNA_OVERVIEW },
         ],
       },
-      { label: "VR (Meta Quest)", items: [{ label: "Hideout", href: HIDEOUT_OVERVIEW }] },
+      {
+        label: "VR (Meta Quest)",
+        items: [
+          { label: "Hideout", href: HIDEOUT_OVERVIEW },
+          { label: "Luminism", href: LUMINISM_OVERVIEW },
+        ],
+      },
     ],
   },
 
@@ -95,6 +104,14 @@ export const DatronHomeContent = {
           ctaLabel: "Go to page",
           iconSrcKey: "hideout",
         },
+        {
+          title: "Luminism",
+          description_html:
+            "A calm <strong>shadow-sculpting puzzle for Meta Quest</strong>. Build a sculpture of blocks so its <strong>shadows paint the pictures on the walls</strong>, under a real night sky. Up to <strong>three lamps</strong> and <strong>coloured glass</strong> mix light as you go, with music that answers every move. Coming soon.",
+          ctaHref: LUMINISM_OVERVIEW,
+          ctaLabel: "Go to page",
+          iconSrcKey: "luminism",
+        },
       ],
     },
   ],
@@ -131,6 +148,9 @@ function iconSrcFor(item, paths) {
   if (item.iconSrcKey === "kitna") {
     return paths.kitnaIconSrc;
   }
+  if (item.iconSrcKey === "luminism") {
+    return paths.luminismIconSrc;
+  }
   return item.iconSrc || "";
 }
 
@@ -143,6 +163,9 @@ function iconAltFor(item, paths) {
   }
   if (item.iconSrcKey === "kitna") {
     return paths.kitnaIconAlt;
+  }
+  if (item.iconSrcKey === "luminism") {
+    return paths.luminismIconAlt;
   }
   return item.iconAlt || "";
 }
@@ -274,7 +297,7 @@ function buildAppArticle(c, app) {
   if (!app || !String(app.title).trim()) return null;
 
   const article = document.createElement("article");
-  const rowModifier = { pocketPad: " app-row--pocketpad", hideout: " app-row--hideout", kitna: " app-row--kitna" };
+  const rowModifier = { pocketPad: " app-row--pocketpad", hideout: " app-row--hideout", kitna: " app-row--kitna", luminism: " app-row--luminism" };
   article.className = "app-row" + (rowModifier[app.iconSrcKey] || "");
 
   const visual = document.createElement("div");
