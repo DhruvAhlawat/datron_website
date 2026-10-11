@@ -31,7 +31,7 @@ export const DatronHomeContent = {
     hideoutIconAlt: "Hideout app icon",
     kitnaIconSrc: "./assets/icons/kitna_512.png",
     kitnaIconAlt: "Kitna app icon",
-    luminismIconSrc: "./assets/icons/luminism_256.png",
+    luminismIconSrc: "./assets/icons/luminism_512.png",
     luminismIconAlt: "Luminism app icon",
   },
 
